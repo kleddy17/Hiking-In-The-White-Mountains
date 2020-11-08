@@ -37,3 +37,8 @@
 6. Add a 'SESSION_SECRET' and 'PORT' enviorment variable in a .env file(can be any string)
 
 
+ERD comments:
+
+Hikes <---> users is a 1:M, so you've got that right with a join table, nice job! This join table will be how your user is associated with their favorites so you don't need a "favorites" entity actually.
+Hikes<--->Comments is going to be a 1 hike to Many comments, so you'll want a hikeId inside of the Comment model
+comments <---> users will be a 1 user to M comments relation, so you'll want a userId field in the comment model too :)

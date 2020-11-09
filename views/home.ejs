@@ -1,11 +1,10 @@
 <h2>Hikes in the White Mountains</h2>
-
+<div class="main">
 <% trail.trails.forEach(t =>{ %>
     <h2><%= t.name %></h2>
-    <h2> <img src="<%=t.imgSmall%>" width="300"><h2>
+    <h2> <img src="<%=t.imgSmall%>" width="200"><h2>
     <p><%= t.location %></p>
     <p><%= t.summary %></p>
     <p><%=  t.difficulty  %></p>
-    
-
     <% }) %> 
+ </div>

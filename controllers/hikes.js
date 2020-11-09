@@ -7,14 +7,11 @@ const router = express.Router()
 
 
 router.get('/', (req,res)=>{
-    // const hikeUrl=`https://www.hikingproject.com/data/get-trails?lat=44.2706207&lon=-71.3042419&maxDistance=100&maxResults=100&key=200966308-be5dfe33bfed32e2f9e2bb337446b45a` 
-    axios.get(`https://www.hikingproject.com/data/get-trails?lat=44.2706207&lon=-71.3042419&maxDistance=50&maxResults=100&key=200966308-be5dfe33bfed32e2f9e2bb337446b45a`)
+    const hikeUrl=`https://www.hikingproject.com/data/get-trails?lat=44.2706207&lon=-71.3042419&maxDistance=50&maxResults=100&key=200966308-be5dfe33bfed32e2f9e2bb337446b45a` 
+    axios.get(hikeUrl)
     .then(response => {
-        console.log(response.data)
         const trail = response.data
-        console.log(trail)
-        // res.send(response.data)
-        res.render('home', {trail: response.data})
+        res.render('home', {trail:trail, showButton:false})
     })
     .catch(err=>{
         console.log(err)
@@ -22,9 +19,13 @@ router.get('/', (req,res)=>{
 })
 
 
-// router.post('/', (req,res)=>{
+router.post('/', (req,res)=>{
+    db.hike.create(req.body)
+.then(createdHike=>{
+    res.redirect('/favorites')
+    })
+})
 
-// })
 
 
 // router.put('/', (req,res)=>{

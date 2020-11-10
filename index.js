@@ -10,9 +10,7 @@ const isLoggedIn = require('./middleware/isLoggedIn')
 // const methodOverride = require('method-override')
 
 
-// use controllers
-app.use('/auth', require('./controllers/auth.js'))
-app.use('/hikes', require('./controllers/hikes.js'))
+
 
 //  setup ejs and ejs layouts
 app.set('view engine', 'ejs')
@@ -43,23 +41,15 @@ app.use((req, res, next)=>{
     next()  //move on to the next piece of middleware
 })
 
-
+// use controllers
+app.use('/auth', require('./controllers/auth.js'))
+app.use('/hikes', require('./controllers/hikes.js'))
 
 app.get('/', (req, res)=>{
-   res.render('home')
+   res.redirect('/hikes')
 })
 
-// app.get('/', (req,res)=>{
-//     const hikeUrl=`https://www.hikingproject.com/data/get-trails?lat=44.2706207&lon=-71.3042419&maxDistance=100&maxResults=100&key=200966308-be5dfe33bfed32e2f9e2bb337446b45a` 
-//     axios.get(hikeUrl)
-//     .then(response => {
-//         const trail = response.data
-//         res.render('show', {trails:trail})
-//     })
-//     .catch(err=>{
-//         console.log(err)
-//     })
-// })
+
 
 app.get('/profile', isLoggedIn, (req,res)=>{
     res.render('profile')

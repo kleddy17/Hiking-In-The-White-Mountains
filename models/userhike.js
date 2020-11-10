@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.hike.belongsToMany(model.user, {through:'userHike'})
+      // no need to make associations in the join table
     }
   };
   userHike.init({

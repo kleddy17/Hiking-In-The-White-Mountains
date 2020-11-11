@@ -36,9 +36,16 @@
 
 6. Add a 'SESSION_SECRET' and 'PORT' enviorment variable in a .env file(can be any string)
 
+### MODELS
 
-ERD comments:
+1. The models I created in my hiker_development database are:
+  a. User --> has a name, email, and password column
+  b. Hike--> has a name, and location column. Need to add a comments and picture column. 
+  c. userHike (joined table) --> M:M association. Needed a join table to associated the user and hikes. has a userId and a hikeId column. 
 
-Hikes <---> users is a 1:M, so you've got that right with a join table, nice job! This join table will be how your user is associated with their favorites so you don't need a "favorites" entity actually.
-Hikes<--->Comments is going to be a 1 hike to Many comments, so you'll want a hikeId inside of the Comment model
-comments <---> users will be a 1 user to M comments relation, so you'll want a userId field in the comment model too :)
+# User Interaction
+
+1. This app is specific to the White Mountains in New Hampshire.
+2. The user can login and see all the hikes in the white mountains within a 50 mile radius. 
+3. User can add hikes to their profile, and keep a journal of their expierence to reference later, or edit. 
+

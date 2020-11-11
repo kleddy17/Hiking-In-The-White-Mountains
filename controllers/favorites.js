@@ -6,35 +6,6 @@ const axios = require('axios')
 const router = express.Router()
 
 
-// router.post('/', (req,res)=>{
-//     db.user.findOrCreate({
-//        //first get reference to a user
-//        where: { id: req.user.id,   
-//        },
-//        defaults: {
-//            email: req.user.email,   
-//        }
-//    })
-//    .then(([user, created]) =>{
-//        //second get reference to a hike
-//            db.hike.findOrCreate({
-//                where: { name:req.body.name        
-//                },
-//                default: {
-//                    location: req.body.location
-//                }
-//            })
-//        .then(([hike,created]) =>{
-//            //finally associate the hike with the user
-//            user.addHike(hike)
-//            .then(createdRelation=>{
-//                console.log("createdRelation:", createdRelation)
-//                console.log(`${hike.name} added to ${user.name}`)
-//                res.redirect('/favorites')
-//            })
-//        })
-//    })
-//    })
 
 router.post('/',(req,res)=>{
     db.hike.findOrCreate({
@@ -62,7 +33,7 @@ router.get('/', (req, res) => {
     })
     .then(foundUser=>{
             // console.log(`${foundUser.name}, has these projects ${hike.name}`)
-            res.render('favorites', {favHikes: foundUser.hikes})
+            res.render('profile', {favHikes: foundUser.hikes})
         })
         .catch(err=>{
             console.log("FUCKKKKK", err)

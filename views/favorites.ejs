@@ -1,0 +1,7 @@
+
+<%favHikes.forEach(h=>{ %>
+    <h4><%=h.name%><%=h.location%></h4>
+    <form method="POST" action="/favorites/<%=h.id%>/?_method=DELETE">
+    <input type="submit" value ="Delete">
+    </form>
+<% })%>

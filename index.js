@@ -7,7 +7,8 @@ const session = require('express-session')
 const passport = require('./config/ppConfig.js')
 const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
-// const methodOverride = require('method-override')
+const methodOverride = require('method-override')
+
 
 
 
@@ -16,6 +17,7 @@ const isLoggedIn = require('./middleware/isLoggedIn')
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(express.urlencoded({ extended: false }))
+app.use(methodOverride('_method'))
 
 //session middleware
 app.use(session({
@@ -44,6 +46,7 @@ app.use((req, res, next)=>{
 // use controllers
 app.use('/auth', require('./controllers/auth.js'))
 app.use('/hikes', require('./controllers/hikes.js'))
+app.use('/favorites', require('./controllers/favorites.js'))
 
 app.get('/', (req, res)=>{
    res.redirect('/hikes')

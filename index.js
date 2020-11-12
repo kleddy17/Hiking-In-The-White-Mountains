@@ -18,6 +18,7 @@ app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
+app.use(express.static(__dirname + '/public'))
 
 //session middleware
 app.use(session({

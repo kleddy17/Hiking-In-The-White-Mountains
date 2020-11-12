@@ -16,7 +16,9 @@ module.exports = (sequelize, DataTypes) => {
   };
   hike.init({
     name: DataTypes.STRING,
-    location: DataTypes.STRING
+    location: DataTypes.STRING,
+    summary: DataTypes.TEXT,
+    photo: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'hike',

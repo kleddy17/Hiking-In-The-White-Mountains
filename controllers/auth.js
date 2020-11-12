@@ -8,7 +8,7 @@ router.get('/signup', (req, res)=>{
 })
 
 router.post('/signup', (req, res)=>{
-    console.log('sign up form user input:😎', req.body)
+    // console.log('sign up form user input:😎', req.body)
     // if it does, throw an error message
     // otherwise create a new user and store them in the db
     db.user.findOrCreate({ // check if that email is already in db

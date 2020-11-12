@@ -1,16 +1,28 @@
-<h2>Hikes in the White Mountains</h2>
-<h1>A way to keep track of which hikes you have tackled, and keep useful notes about each one!</h1>
+<h2 class="text-center">Hiking in the White Mountains</h2>
+<h5 class="text-center">A way to keep track of which hikes you have tackled, and keep useful notes about each one!</h1>
+<p class="text-center"><a href="/favorites">Favorites</a></p>
 <% trail.trails.forEach(t =>{ %>
-    <h2><%= t.name %></h2>
-    <h2> <img src="<%=t.imgSmall%>" width="300"><h2>
-    <p><%= t.location %></p>
-    <p><%= t.summary %></p>
-    <p><%=  t.difficulty  %></p>
-        <form method="POST" action="/favorites">
-        <input type = "hidden" name="name" value="<%=t.name%>">
-        <input type = "hidden" name="location" value="<%=t.location%>">
-        <input type= "submit" value="Add to my hikes">
-        </form>
+    <div class="card" style="width: 18rem;">
+    <img class ="card-img-top" src="<%=t.imgSmall%>" alt="Card image cap" width="150">
+    <div class="card-body">
+    <h2 class="card-title"><%= t.name %></h2>
+    <p class="card-text"><%= t.location %></p>
+    <p class="card-text"><%= t.summary %></p>
+    <p class="card-text"><%=  t.difficulty  %></p>
+    <form method="POST" action="/favorites">
+     <input type = "hidden" name="name" value="<%=t.name%>">
+     <input type = "hidden" name="location" value="<%=t.location%>">
+     <input type = "hidden" name="summary" value="<%=t.summary%>">
+     <input type = "hidden" name="photo" value="<%=t.imgSmall%>">
+     <input type= "submit" value="Add to my hikes" class="btn btn-primary">
+     </form>
+    </div></div>
 
+    
+
+
+
+   
   
    <% }) %> 
+

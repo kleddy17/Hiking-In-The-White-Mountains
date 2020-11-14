@@ -10,22 +10,21 @@ const router = express.Router()
 router.post('/',(req,res)=>{
     db.hike.findOrCreate({
         where: {name: req.body.name,
-                location: req.body.location,
-                summary: req.body.summary,
-                photo: req.body.photo},
-         include: [db.user],
+            location: req.body.location,
+            summary: req.body.summary,
+            photo: req.body.photo},
+        include: [db.user],
     })
     .then(([foundOrCreatedHike, created]) =>{
         foundOrCreatedHike.addUser(req.user)
         .then(createdRelation=>{
-            console.log("createdRelation:", createdRelation)
+            // console.log("createdRelation:", createdRelation)
             res.redirect('/favorites')
         })
-        .catch(err=>{
-           console.log("FUCK", err)
+            .catch(err=>{
+                console.log("ERROR 1", err)
         })
-    })
-   
+    })  
 })
 
 router.get('/', (req, res) => {
@@ -41,36 +40,22 @@ router.get('/', (req, res) => {
             console.log("Im an error", err)
         })
         })
-         
-router.put('/:id', (req, res)=>{
-    db.userHike.update({
-    comment: req.body.comment
-    },
-    {where:{userId: req.user.id, 
-            hikeId: req.params.id}
-})
-.then(commentUpdated=>{
-        console.log('🤪🤪🤪🤪🤪🤪🤪🤪🤪🤪🤪🤪' ,commentUpdated)
-        res.redirect(`/favorites/${req.params.id}`)
-})
-.catch(err=>{
-    res.send(err)
-})      
-})
+       
 
-router.get('/:hikeId', (req,res)=>{
-    db.userHike.findOne({
-        where: {userId: req.user.id,
-                hikeId: req.params.hikeId}
-        })
-    .then((foundUserHike)=>{
-        console.log('!!!!!!!!!!!!!!', foundUserHike.dataValues.comment)
-        res.render('comment', {foundUserHike: foundUserHike})
-    })
-    .catch((error)=>{
-        console.log('HERE', error)
-    })
+router.put('/:id', (req, res)=> {
+  db.userHike.update({
+      comment: req.body.comment
+    },
+    {
+        where: {userId: req.user.id, 
+                hikeId:req.params.id }
+  })
+  .then(newComment=>{
+    // console.log("this is my comment", newComment)
+    res.redirect(`/comments/${req.params.id}`)
+  })
 })
+       
 
 router.delete('/:id' ,(req, res)=>{
     db.hike.destroy({

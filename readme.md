@@ -10,7 +10,7 @@
 1. Fork and Clone
 2. Install dependencies --> npm i 
 3. Create a 'config.json with the following code:
-{
+
   "development": {
     
     "database": "<insert db name here>",

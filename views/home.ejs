@@ -10,7 +10,7 @@
     <h2 class="card-title"><%= t.name %></h2>
     <p class="card-text"><%= t.location %></p>
     <p class="card-text"><%= t.summary %></p>
-    <p class="card-text"><%=  t.difficulty  %></p>
+    <p class="card-text"> Difficulty: <%=  t.difficulty  %></p>
     <form method="POST" action="/favorites">
      <input type = "hidden" name="name" class= "font-style-card" value="<%=t.name%>">
      <input type = "hidden" name="location" value="<%=t.location%>">

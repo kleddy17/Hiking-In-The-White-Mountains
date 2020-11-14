@@ -5,21 +5,19 @@ const axios = require('axios')
 const router = express.Router()
 
 
-router.get('/', (req, res) => {
-    db.userHike.findAll({
-       comment: req.body.comment
-            },
-            {where:{userId: req.user.id, 
-                    hikeId: req.params.id}
-        })
-    .then(foundUserHike=>{
-            // console.log(`${foundUser.name}, has these projects ${hike.name}`)
-            res.render('comment', {foundUserHike: foundUserHike.dataValues.comment})
-        })
-        .catch(err=>{
-            console.log("Im an error", err)
-        })
-        })
+
+
+
+router.get('/:hikeId', (req, res)=> {
+    db.userHike.findOne({
+      where: {userId: req.user.id, 
+              hikeId:req.params.hikeId},
+    })
+    .then(foundComment=>{
+        console.log('THIS IS THE FOUND COMMENT', foundComment) //this returned an object
+        res.render('comment', {comment: foundComment.dataValues})
+    })
+  });
          
 
 

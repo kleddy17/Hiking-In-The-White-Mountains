@@ -41,8 +41,7 @@ router.get('/', (req, res) => {
             console.log("Im an error", err)
         })
         })
-    
-   
+         
 router.put('/:id', (req, res)=>{
     db.userHike.update({
     comment: req.body.comment
@@ -51,33 +50,27 @@ router.put('/:id', (req, res)=>{
             hikeId: req.params.id}
 })
 .then(commentUpdated=>{
-        console.log(commentUpdated)
-        res.redirect('/favorites')
-    })
+        console.log('🤪🤪🤪🤪🤪🤪🤪🤪🤪🤪🤪🤪' ,commentUpdated)
+        res.redirect(`/favorites/${req.params.id}`)
+})
 .catch(err=>{
     res.send(err)
-})
+})      
 })
 
-
-router.get('/:id', (req, res) => {
-    db.userHike.findAll({
-      where: {userId: req.user.id,
-              hikeId: req.params.id}
-      })
-    .then((foundComment) => {
-        console.log("@@@@@@@@@@@@@",foundComment.dataValues[0])
-      res.render('comment', {foundComment: foundComment.datatypes})
-    }).catch((error) => {
-      console.log(error)
-      res.status(400).render('main/404')
+router.get('/:hikeId', (req,res)=>{
+    db.userHike.findOne({
+        where: {userId: req.user.id,
+                hikeId: req.params.hikeId}
+        })
+    .then((foundUserHike)=>{
+        console.log('!!!!!!!!!!!!!!', foundUserHike.dataValues.comment)
+        res.render('comment', {foundUserHike: foundUserHike})
     })
-  })
-
-
-
-
-
+    .catch((error)=>{
+        console.log('HERE', error)
+    })
+})
 
 router.delete('/:id' ,(req, res)=>{
     db.hike.destroy({
@@ -91,6 +84,8 @@ router.delete('/:id' ,(req, res)=>{
    console.log(err)
   })
 })
+
+
   
 
 module.exports = router;

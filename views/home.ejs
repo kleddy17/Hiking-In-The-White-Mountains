@@ -1,6 +1,8 @@
-<h2 class="text-center">Hiking in the White Mountains</h2>
-<h5 class="text-center">A way to keep track of which hikes you have tackled, and keep useful notes about each one!</h1>
+<h2 class="text-center" id="title">Hiking in the White Mountains</h2>
+<div><h5 class="text-center" id='description'>A way to track your hikes, and keep useful notes about each one!</h1></div>
 <p class="text-center"><a href="/favorites">Favorites</a></p>
+  
+
 <% trail.trails.forEach(t =>{ %>
     <div class="card" style="width: 18rem;">
     <img class ="card-img-top" src="<%=t.imgSmall%>" alt="Card image cap" width="150">
@@ -10,19 +12,13 @@
     <p class="card-text"><%= t.summary %></p>
     <p class="card-text"><%=  t.difficulty  %></p>
     <form method="POST" action="/favorites">
-     <input type = "hidden" name="name" value="<%=t.name%>">
+     <input type = "hidden" name="name" class= "font-style-card" value="<%=t.name%>">
      <input type = "hidden" name="location" value="<%=t.location%>">
      <input type = "hidden" name="summary" value="<%=t.summary%>">
      <input type = "hidden" name="photo" value="<%=t.imgSmall%>">
-     <input type= "submit" value="Add to my hikes" class="btn btn-primary">
+     <input type= "submit" value="Add to my hikes" class="btn btn-dark">
      </form>
     </div></div>
 
-    
-
-
-
-   
-  
    <% }) %> 
 

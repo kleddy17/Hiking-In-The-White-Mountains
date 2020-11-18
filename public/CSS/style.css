@@ -38,3 +38,16 @@ body {
 .journal-header{
     font-family: 'Patrick Hand', cursive;  
 }
+
+/* .favpage{
+    background-image:  url("https://free4kwallpapers.com/uploads/wallpaper/i-managed-to-capture-the-moon-rising-in-the-sunset-on-my-latest-hike-in-new-hampshire-wallpaper-1024x768-wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-color:black;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    align-items: center;
+    width:100vw;
+} */

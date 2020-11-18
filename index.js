@@ -46,9 +46,9 @@ app.use((req, res, next)=>{
 
 // use controllers
 app.use('/auth', require('./controllers/auth.js'))
-app.use('/hikes', require('./controllers/hikes.js'))
-app.use('/comments', require('./controllers/comments.js'))
-app.use('/favorites', require('./controllers/favorites.js'))
+app.use('/hikes', isLoggedIn, require('./controllers/hikes.js'))
+app.use('/comments', isLoggedIn, require('./controllers/comments.js'))
+app.use('/favorites', isLoggedIn, require('./controllers/favorites.js'))
 
 
 app.get('/', (req, res)=>{

@@ -4,10 +4,10 @@ const db = require('../models')
 const app = express()
 const axios = require('axios')
 const router = express.Router()
+const isLoggedIn = require('../middleware/isLoggedIn')
 
-
-
-router.post('/',(req,res)=>{
+//Code I am most proud of, creating the relationship. 
+router.post('/', isLoggedIn, (req,res)=>{
     db.hike.findOrCreate({
         where: {name: req.body.name,
             location: req.body.location,
@@ -27,7 +27,7 @@ router.post('/',(req,res)=>{
     })  
 })
 
-router.get('/', (req, res) => {
+router.get('/', isLoggedIn, (req, res) => {
     db.user.findOne({
         where: {id:req.user.id},
         include: [db.hike]
@@ -42,7 +42,7 @@ router.get('/', (req, res) => {
         })
        
 
-router.put('/:id', (req, res)=> {
+router.put('/:id', isLoggedIn, (req, res)=> {
   db.userHike.update({
       comment: req.body.comment
     },
@@ -57,7 +57,7 @@ router.put('/:id', (req, res)=> {
 })
        
 
-router.delete('/:id' ,(req, res)=>{
+router.delete('/:id', isLoggedIn ,(req, res)=>{
     db.hike.destroy({
     where: {id: req.params.id}
   })

@@ -54,6 +54,9 @@ router.put('/:id', isLoggedIn, (req, res)=> {
     // console.log("this is my comment", newComment)
     res.redirect(`/comments/${req.params.id}`)
   })
+  .catch(err=>{
+    console.log("Im an error", err)
+})
 })
        
 

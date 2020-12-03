@@ -64,3 +64,5 @@
 2. The user can login and see all the hikes in the white mountains within a 50 mile radius. 
 3. User can add hikes to their profile, and keep a journal of their expierence to reference later, or edit. 
 
+LIVE HEROKU SITE
+https://hiking-the-white-mountains.herokuapp.com/auth/login

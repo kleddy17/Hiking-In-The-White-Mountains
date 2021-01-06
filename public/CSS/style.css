@@ -1,7 +1,7 @@
 body {
     background-image:  url('https://www.visitnh.gov/getmedia/c7ee6c6a-6ab0-4d9d-88b8-8df621c3010e/3-Mountains.jpg');
     
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat;
     background-color:black;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -9,7 +9,7 @@ body {
     flex-direction:column;
     justify-content: space-between;
     align-items: center;
-    width:100vw;
+    width:100vw; */
     
 }
 /* #title{

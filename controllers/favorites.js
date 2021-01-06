@@ -6,7 +6,7 @@ const axios = require('axios')
 const router = express.Router()
 const isLoggedIn = require('../middleware/isLoggedIn')
 
-//Code I am most proud of, creating the relationship. 
+// POST This route create a new favorite hike to the specfic user
 router.post('/', isLoggedIn, (req,res)=>{
     db.hike.findOrCreate({
         where: {name: req.body.name,
@@ -18,7 +18,6 @@ router.post('/', isLoggedIn, (req,res)=>{
     .then(([foundOrCreatedHike, created]) =>{
         foundOrCreatedHike.addUser(req.user)
         .then(createdRelation=>{
-            // console.log("createdRelation:", createdRelation)
             res.redirect('/favorites')
         })
             .catch(err=>{

@@ -8,8 +8,7 @@ const isLoggedIn = require('../middleware/isLoggedIn')
 
 
 
-//This code here was the toughest. Literally broke an hour before my project, while I was 
-// cleaning up indentations, and accidently deleted something
+// GET This route finds the user by their id and their saved hike by id. 
 router.get('/:hikeId', isLoggedIn, (req, res)=> {
     db.userHike.findOne({
       where: {userId: req.user.id, 

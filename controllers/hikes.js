@@ -7,6 +7,7 @@ const router = express.Router()
 const isLoggedIn = require('../middleware/isLoggedIn')
 
 
+// This is my API call to get all the hikes from the hikingproject API
 router.get('/', isLoggedIn, (req,res)=>{
   axios.get(`https://www.hikingproject.com/data/get-trails?lat=44.2706207&lon=-71.3042419&maxDistance=50&maxResults=100&key=${process.env.API_KEY}`)
     .then(response => {

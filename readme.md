@@ -1,4 +1,4 @@
-# Express Auth Boilerplate
+# Hiking in the White Mountains
 
 
 * created a node app

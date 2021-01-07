@@ -12,30 +12,92 @@
 }
 
 #title{
-    font-family: 'Big Shoulders Inline Text', cursive; 
-    color: #49c1ed;
+    font-family: 'Bitter', serif;
+    font-size: 100px;
+    font-weight: 500;
+ 
 }
 
 #description{
     font-family:Georgia,serif;
-	color:teal;
+    color:black;
+    font-size: 50px;
 	font-variant: small-caps; text-transform: none; font-weight: 100; margin-bottom: 0;
 
     }
 
-.font-style-card{
+.card {
  font-family:Georgia,serif;
+ align-items: flex-end;
 }
 
 .journal{
-    font-family: 'News Cycle', sans-serif;
-    color:white;
+    font-family: 'Bitter', serif;
+    color:black;
+    text-decoration: underline; 
 }
+
 .form-group{
     color:teal;
 }
 
 .journal-header{
-    font-family: 'Patrick Hand', cursive;  
+    font-family: 'Bitter', serif;
+    font-size: 50px;
+    font-weight: 100;
+    text-decoration: underline;
 }
 
+.journal-entry {
+    font-family: 'Bitter', serif;
+    font-size: 25px;
+    
+}
+
+#card-container {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    text-align: left;  
+}
+
+#card {
+    margin-left: 3vw;
+    text-align: center;
+    margin-bottom: 3vw;
+}
+
+#card:hover{
+    opacity: 50%;
+}
+
+#card-img-top {
+    width: 18.2vw;
+    height: 10vw;
+}
+
+#fav-container{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    text-align: left;
+}
+
+.card-title {
+    text-decoration: underline black;
+    font-weight: bold;
+}
+
+.profile-title{
+    text-align: center;
+    font-family: 'Bitter', serif;
+    font-size: 50px;
+    font-weight: 100;
+}
+
+.dropdown{
+   border: 2px solid purple;
+   float:right
+}

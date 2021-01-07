@@ -61,22 +61,5 @@ const strategy = new LocalStrategy(fieldsToCheck, findAndLogInUser)
 passport.use(strategy)
 
 
-// passport.use(new LocalStrategy({
-//     usernameField: 'email',
-//     passwordField: 'password'
-// },
-// (email, password, doneCallback) => {
-//     console.log("passport-local is now trying to authenticate this user:", email)
-//     db.user.findOne({where:{email:email}})
-//     .then(foundUser=>{
-//         if (!foundUser || !foundUser.validPassword(password)) { 
-//             return doneCallback(null, false)
-//         } else {
-//             return doneCallback(null, foundUser);
-//         }
-//     })
-//     .catch(err=>doneCallback(err))
-// }
-
 
 module.exports = passport

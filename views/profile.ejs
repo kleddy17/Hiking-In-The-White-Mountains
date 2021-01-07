@@ -1,32 +1,33 @@
 <div class = "favpage">
 
-
-<h2><%= currentUser.name %>'s Profile</h2>
-
+  <br>
+  <br>
+  <br>
+<h2 class="profile-title"><%= currentUser.name %>'s Favorites</h2>
+<br>
+<br>
+<br>
+<div id = "fav-container">
 <%favHikes.forEach(h=>{ %>  
-        <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="<%=h.photo%>" width="300">
-        <div class="card-body">
-                <h5 class="card-title"><%=h.name%><h5>    
-                <p><%=h.location%></p>
-                <p class="card-text"><%=h.summary%></p>
-
+   <div id="card" class="card" style="width: 18rem;">
+     <img class="card-img-top" src="<%=h.photo%>" width="300">
+   <div class="card-body">
+     <h5 class="card-title"><%=h.name%><h5>    
+     <p><%=h.location%></p>
+     <p class="card-text"><%=h.summary%></p>
 <form method="POST" action="/favorites/<%=h.id%>/?_method=DELETE">
-        <input type="submit" value ="Delete">
+  <input class="btn btn-dark" type="submit" value ="Delete">
 </form>
-</div>
- </div>
- 
-  
+
 <form method="POST" action="/favorites/<%=h.id%>/?_method=PUT">
+  <br>
         <label for="content" class= "journal">Journal Entry</label>
         <textarea type="text" id="content" name="comment"></textarea>
         <input type="submit" value = "Edit" class="btn btn-dark">
         <input type="submit" value = "Submit" class="btn btn-dark">
-        <a href="/comments/<%=h.id%>"> See my journal </a>
+        <a href="/comments/<%=h.id%>"> <br> See my journal </a>
 </form>
-
-
-  
-<% })%>      
 </div>  
+</div> 
+<% })%>      
+</div>

@@ -1,3 +1,8 @@
+
+   @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap');
+  
+   
+   
    body { 
     background-image: url('https://www.visitnh.gov/getmedia/c7ee6c6a-6ab0-4d9d-88b8-8df621c3010e/3-Mountains.jpg');
     background-repeat: no-repeat;
@@ -12,15 +17,16 @@
 }
 
 #title{
-    font-family: 'Bitter', serif;
+    font-family: 'Libre Baskerville', serif;
     font-size: 100px;
     font-weight: 500;
+    color:white
  
 }
 
 #description{
     font-family:Georgia,serif;
-    color:black;
+    color:white;
     font-size: 50px;
 	font-variant: small-caps; text-transform: none; font-weight: 100; margin-bottom: 0;
 
@@ -98,6 +104,6 @@
 }
 
 .dropdown{
-   border: 2px solid purple;
+   /* border: 2px solid purple; */
    float:right
 }
